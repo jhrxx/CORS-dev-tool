@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CORS-Settings</title>
+    <link href="/node_modules/chrome-bootstrap/chrome-bootstrap.min.css" rel="stylesheet">
+    <link href="/options.css" rel="stylesheet">
+  </head>
+
+  <body class="chrome-bootstrap">
+    <!-- dialog templ -->
+    <script id="add_edit_template" type="text/html">
+      <a href="#" class="close-button" id="close_dialog"></a>
+      <h1><%=data.title%></h1>
+      <section class="content-area">
+        <div class="row">
+          <a target="_blank" href="<%=lang.more_details_url%>"><%=lang.more_details%></a> &nbsp;
+        </div>
+        <div class="row">
+          <%=lang.patterns%>:
+          <input id="url_pattern" type="text" placeholder="Intercepted URLs or URL patterns" <%if( data.type==='edit') {%> value="<%=data.pattern%>" <%}%>>
+        </div>
+        <div class="row">
+          <%=lang.description%>:
+          <input type="text" id="url_description" placeholder="option" <%if( data.type==='edit') {%> value="<%=data.description%>" <%}%>>
+        </div>
+        <label for="url_active">
+          <input id="url_active" type="checkbox" <%if( data.type==='edit' && data.active) {%> checked<%}%>> <%=lang.enable%>
+        </label>
+      </section>
+      <div class="action-area">
+        <div class="button-strip">
+          <button class="save-<%=data.type%>"<%if( data.type==='edit' ){%> data-id="<%=data.id%>" <%}%>>
+            <%=data.title%>
+          </button>
+          <button class="cancel"><%=lang.cancel%></button>
+        </div>
+      </div>
+    </script>
+    <script id="delete_template" type="text/html">
+      <h1><%=lang.confirm_delete%></h1>
+      <div class="action-area">
+        <div class="button-strip">
+          <button class="confirm-delete" data-id="<%=data.id%>"><%=lang.confirm%></button>
+          <button class="cancel"><%=lang.cancel%></button>
+        </div>
+      </div>
+    </script>
+
+    <!-- page content templ -->
+    <script id="filter_list_template" type="text/html">
+      <% for ( var i = 0; i < data.length; i++ ) { %>
+        <div class="row">
+          <input type="checkbox" data-id="<%=data[i].id%>" id="url_<%=data[i].id%>"<%if (data[i].active){%> checked<%}%>>
+          <%=data[i].url%>
+          <%if (data[i].id !== 0){%>
+          <a class="del" data-id="<%=data[i].id%>"><%=lang.del%></a>
+          <%}%>
+          <a class="edit" data-id="<%=data[i].id%>" data-pattern="<%=data[i].url%>" data-description="<%=data[i].description%>" data-active="<%=data[i].active?1:0%>"><%=lang.edit%></a>
+          <%if (data[i].description){%>
+          <p class="desc"><%=data[i].description%></p>
+          <%}%>
+        </div>
+      <% } %>
+    </script>
+    <script id="response_headers_template" type="text/html">
+      <section>
+        <% for ( var i = 0; i < data.length; i++ ) { %>
+        <h3><%=data[i].title%>:</h3>
+        <div class="row">
+          <input type="checkbox" data-key="<%=data[i].id%>" id="enable_access_control_<%=data[i].id%>"<%if (data[i].active) {%> checked<%}%>>
+          <label for="enable_access_control_<%=data[i].id%>"><%=lang.enable%></label>
+          <label for="access_control_<%=data[i].id%>">
+            <input type="text" placeholder="<%=data[i].placeholder%>" data-key="<%=data[i].id%>"
+              id="access_control_<%=data[i].id%>" value="<%=data[i].value%>"<%if (!data[i].active) {%> disabled<%}%>>
+          </label>
+          <p class="desc"><%=data[i].description%></p>
+        </div>
+        <% } %>
+      </section>
+    </script>
+    <script id="nav_template" type="text/html">
+      <nav class="navigation" id="navigation">
+        <h1><a href="https://github.com/jhrxx/CORS-Chrome-extension" target="_blank"><%=settings%></a></h1>
+        <ul class="menu">
+          <li id="response_headers_item" class="selected">
+            <a href="#response_headers"><%=headers%></a>
+          </li>
+          <li id="settings_item">
+            <a href="#settings"><%=patterns%></a>
+          </li>
+        </ul>
+        <ul class="menu">
+          <li id="about_item">
+            <a href="#about"><%=about%></a>
+          </li>
+        </ul>
+      </nav>
+    </script>
+    <script id="mainview_template" type="text/html">
+      <section class="mainview view">
+        <div id="response_headers" class="selected">
+          <header>
+            <h1><%=headers%></h1>
+          </header>
+          <div class="content" id="response_headers_content"></div>
+        </div>
+        <div id="settings">
+          <header>
+            <h1><%=patterns%></h1>
+          </header>
+          <div class="content">
+            <div class="controls">
+              <button id="add_url"><%=new_filter%></button>
+              <div class="text"></div>
+            </div>
+            <h3><%=list%></h3>
+            <section id="filter_list">
+            </section>
+          </div>
+        </div>
+        <div id="about">
+          <header>
+            <h1><%=about%></h1>
+          </header>
+          <div class="content">
+            <div id="about-container">
+              <div id="product-description">
+                <h2>CORS-Chrome-extension</h2>
+                <span id="version-container"></span>
+                <a href="https://github.com/jhrxx/CORS-Chrome-extension" target="_blank"><%=github%></a>
+              </div>
+            </div>
+            <div id="copyright-container">
+              Copyright &copy; 2015 jhrxx. Licensed under the Anti-996 License.
+            </div>
+          </div>
+        </div>
+      </section>
+    </script>
+
+    <article class="frame" id="main_content"></article>
+
+    <article id="dialog" class="overlay transparent">
+      <section class="page"></section>
+    </article>
+
+    <script src="tmpl.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

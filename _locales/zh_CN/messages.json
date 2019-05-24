@@ -1,0 +1,86 @@
+{
+  "enable_cross_origin_resource_sharing": {
+    "message": "启用跨站 HTTP 请求"
+  },
+  "CORS": {
+    "message": "跨源资源共享"
+  },
+  "filter_list": {
+    "message": "过滤列表"
+  },
+  "options":{
+    "message": "自定义"
+  },
+  "add_more":{
+    "message": "添加更多"
+  },
+  "add":{
+    "message": "新增"
+  },
+  "delete":{
+    "message": "删除"
+  },
+  "edit":{
+    "message": "编辑"
+  },
+  "more_details":{
+    "message": "了解详情"
+  },
+  "enable":{
+    "message": "启用"
+  },
+  "description": {
+    "message": "备注"
+  },
+  "confirm":{
+    "message": "确定"
+  },
+  "cancel":{
+    "message": "取消"
+  },
+  "confirm_delete":{
+    "message": "你确定要删除么？"
+  },
+  "CORS_Settings":{
+    "message": "CORS 设置"
+  },
+  "response_headers":{
+    "message": "HTTP 响应头"
+  },
+  "about":{
+    "message": "关于"
+  },
+  "new_filter":{
+    "message": "新增过滤规则"
+  },
+  "all_urls":{
+    "message": "匹配所有链接"
+  },
+  "filter_url_patterns":{
+    "message": "过滤 url 模式"
+  },
+  "project_on_github":{
+    "message": "GitHub 项目"
+  },
+  "url_patterns":{
+    "message": "Url 模式"
+  },
+  "allow_origin_desc": {
+    "message": "origin 参数指定一个允许向该服务器提交请求的 URI. 对于一个不带有 credentials 的请求, 可以指定为'*', 表示允许来自所有域的请求."
+  },
+  "allow_headers_desc": {
+    "message": "在响应预检请求的时候使用. 用来指明在实际的请求中, 可以使用哪些自定义 HTTP 请求头"
+  },
+  "expose_headers_desc": {
+    "message": "设置浏览器允许访问的服务器的头信息的白名单"
+  },
+  "allow_credentials_desc": {
+    "message": "告知客户端, 当请求的 credientials 属性是  true 的时候, 响应是否可以被得到. 当它作为预请求的响应的一部分时, 它用来告知实际的请求是否使用了 credentials. 注意, 简单的 GET 请求不会预检, 所以如果一个请求是为了得到一个带有 credentials 的资源, 而响应里又没有 Access-Control-Allow-Credentials 头信息, 那么说明这个响应被忽略了."
+  },
+  "max_age_desc": {
+    "message": "这个头告诉我们这次预请求的结果的有效期是多久, delta-seconds 参数表示, 允许这个预请求的参数缓存的秒数, 在此期间, 不用发出另一条预检请求."
+  },
+  "allow_methods_desc": {
+    "message": "指明资源可以被请求的方式有哪些 (一个或者多个). 这个响应头信息在客户端发出预检请求的时候会被返回."
+  }
+}

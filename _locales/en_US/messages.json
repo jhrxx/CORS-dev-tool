@@ -1,0 +1,89 @@
+{
+	"enable_cross_origin_resource_sharing": {
+    "message": "Enable cross-origin resource sharing"
+  },
+  "CORS": {
+    "message": "Cross-Origin Resource Sharing"
+  },
+  "filter_list": {
+    "message": "Filter list"
+  },
+  "options":{
+    "message": "Options"
+  },
+  "add_more":{
+    "message": "Add More"
+  },
+  "add":{
+    "message": "Add"
+  },
+  "delete":{
+    "message": "Delete"
+  },
+  "edit":{
+    "message": "Edit"
+  },
+  "more_details":{
+    "message": "More Details"
+  },
+  "url_patterns":{
+    "message": "Url Patterns"
+  },
+  "enable":{
+    "message": "Enable"
+  },
+  "description": {
+    "message": "Description"
+  },
+  "confirm":{
+    "message": "Confirm"
+  },
+  "cancel":{
+    "message": "Cancel"
+  },
+  "confirm_delete":{
+    "message": "Confirm Delete?"
+  },
+  "CORS_Settings":{
+    "message": "CORS Settings"
+  },
+  "response_headers":{
+    "message": "HTTP Response Headers"
+  },
+  "about":{
+    "message": "About"
+  },
+  "new_filter":{
+    "message": "New filter patterns"
+  },
+  "all_urls":{
+    "message": "match all urls"
+  },
+  "filter_url_patterns":{
+    "message": "Filter Url Patterns"
+  },
+  "project_on_github":{
+    "message": "Project on GitHub"
+  },
+  "urls":{
+    "message": "URLs"
+  },
+  "allow_origin_desc": {
+    "message": "The origin parameter specifies a URI that may access the resource.  The browser must enforce this.  For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+  },
+  "allow_headers_desc": {
+    "message": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+  },
+  "expose_headers_desc": {
+    "message": "This header lets a server whitelist headers that browsers are allowed to access."
+  },
+  "allow_credentials_desc": {
+    "message": "Indicates whether or not the response to the request can be exposed when the credentials flag is true.  When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials.  Note that simple GET requests are not preflighted, and so if a request is made for a resource with credentials, if this header is not returned with the resource, the response is ignored by the browser and not returned to web content."
+  },
+  "max_age_desc": {
+    "message": "This header indicates how long the results of a preflight request can be cached. The delta-seconds parameter indicates the number of seconds the results can be cached."
+  },
+  "allow_methods_desc": {
+    "message": "Specifies the method or methods allowed when accessing the resource.  This is used in response to a preflight request."
+  }
+}

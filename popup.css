@@ -1,0 +1,21 @@
+#container {
+	width: 350px;
+}
+
+body,html {
+  -webkit-tap-highlight-color: transparent
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-user-select: none;
+  background-color: #fbf9fe
+}
+
+.container {
+  -webkit-overflow-scrolling: touch
+}
+
+.container > div {
+  background-color: #fbf9fe
+}

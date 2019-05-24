@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="/popup.css">
+  <link rel="stylesheet" href="/weui.css">
+</head>
+
+<body>
+  <script id="filter_list_template" type="text/html">
+    <% for ( var i = 0; i < urls.length; i++ ) { %>
+      <label class="weui-cell weui-check__label" for="fu_<%=urls[i].id%>">
+        <div class="weui-cell__hd">
+            <input type="checkbox" class="weui-check" name="checkbox1" data-key="<%=urls[i].id%>" id="fu_<%=urls[i].id%>"<%=(urls[i].active&&" checked")%>>
+            <i class="weui-icon-checked"></i>
+        </div>
+        <div class="weui-cell__bd">
+            <p><%=urls[i].url%></p>
+        </div>
+        <div class="weui-cell__ft"><%=urls[i].description%></div>
+      </label>
+    <% } %>
+  </script>
+  <script id="container_template" type="text/html">
+    <div class="cell">
+      <div class="weui-cells__title"><%=lang.title%></div>
+      <div class="weui-cells weui-cells_form">
+          <div class="weui-cell weui-cell_switch">
+              <div class="weui-cell__bd"><%=lang.cors%></div>
+              <div class="weui-cell__ft">
+                  <input id="switch" class="weui-switch" type="checkbox"<%=(data.active&&" checked")%>/>
+              </div>
+          </div>
+      </div>
+      <div class="weui-cells__title"><%=lang.list%></div>
+      <div class="weui-cells weui-cells_checkbox">
+          <div id="filter_list"><%=filterListHtml%></div>
+          <a href="javascript:void(0);" id="options" class="weui-cell weui-cell_link">
+              <div class="weui-cell__bd"><%=lang.more_details%></div>
+          </a>
+      </div>
+    </div>
+  </script>
+
+  <div id="container" class="container"></div>
+
+  <script src="tmpl.js"></script>
+  <script src="popup.js"></script>
+</body>
+
+</html>
