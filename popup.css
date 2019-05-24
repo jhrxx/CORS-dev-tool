@@ -19,3 +19,17 @@ body {
 .container > div {
   background-color: #fbf9fe
 }
+
+a {
+  text-decoration:none;
+  -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+#options {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+#switch,
+.weui-check__label {
+  cursor: pointer;
+}

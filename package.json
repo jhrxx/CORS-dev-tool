@@ -1,0 +1,19 @@
+{
+  "name": "corsdevtool",
+  "author": "jhrxx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "chrome-bootstrap": "^1.5.0"
+  },
+  "devDependencies": {
+    "del": "^4.1.1",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-jsonminify": "^1.1.0",
+    "gulp-minify": "^3.1.0"
+  }
+}

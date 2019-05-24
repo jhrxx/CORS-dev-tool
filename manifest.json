@@ -1,39 +1,38 @@
 {
-  "manifest_version": 2,
-  "name": "CORS-dev-tool",
-  "description": "This extension allows developer config rules in modifying responses within Ajax request.",
-  "version": "1.2.0",
-  "homepage_url": "https://github.com/jhrxx/CORS-dev-tool",
-  "default_locale": "en_US",
-
-  "browser_action": {
-    "default_icon": "off.png",
-    "default_popup": "popup.html",
-    "default_title": "Cross-Origin Settings"
-  },
-
-  "icons": {
-    "48": "icon.svg",
-    "96": "icon.svg"
-  },
-
-  "background": {
-    "scripts": ["background.js"]
-  },
-
-  "options_ui": {
-    "page": "options.html",
-    "chrome_style": false,
-    "open_in_tab": true
-  },
-
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-
-  "permissions": [
-    "tabs",
-    "storage",
-    "<all_urls>",
-    "webRequest",
-    "webRequestBlocking"
-  ]
+    "manifest_version": 2,
+    "name": "CORS-dev-tool",
+    "description": "This extension allows developer config rules in modifying responses within Ajax request.",
+    "version": "1.2.1",
+    "homepage_url": "https://github.com/jhrxx/CORS-dev-tool",
+    "default_locale": "en_US",
+    "browser_action": {
+        "default_icon": "off.png",
+        "default_popup": "popup.html",
+        "default_title": "Cross-Origin Settings"
+    },
+    "icons": {
+        "48": "icon.svg",
+        "96": "icon.svg"
+    },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": false,
+        "open_in_tab": true
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "jhrxxjh123@gmail.com"
+        }
+    },
+    "permissions": [
+        "tabs",
+        "storage",
+        "<all_urls>",
+        "webRequest",
+        "webRequestBlocking"
+    ]
 }

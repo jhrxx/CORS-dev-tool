@@ -32,6 +32,9 @@ body {
   margin-left: 0.2em;
   margin-right: 0.2em;
 }
+.weui-cell_link {
+  color: #576b95;
+}
 .weui-cells {
   margin-top: 8px;
   background-color: #ffffff;
@@ -215,13 +218,6 @@ body {
 .weui-cells_checkbox .weui-check:checked + .weui-icon-checked:before {
   content: '\EA06';
   color: #07c160;
-}
-.weui-cell_link {
-  color: #576b95;
-  font-size: 17px;
-}
-.weui-cell_link:first-child:before {
-  display: block;
 }
 .weui-cells_checkbox .weui-check__label:before {
   left: 55px;

@@ -115,7 +115,7 @@ browser.runtime.onInstalled.addListener(() => {
                 urls: [
                     {
                         id: 0,
-                        active: false,
+                        active: true,
                         url: '<all_urls>',
                         description: browser.i18n.getMessage('all_urls'),
                         last_modify: getTimestamp()

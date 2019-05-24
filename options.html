@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>CORS-Settings</title>
     <link href="/node_modules/chrome-bootstrap/chrome-bootstrap.min.css" rel="stylesheet">
+    <link href="/chrome-bootstrap.css" rel="stylesheet">
     <link href="/options.css" rel="stylesheet">
   </head>
 
@@ -81,7 +82,7 @@
     </script>
     <script id="nav_template" type="text/html">
       <nav class="navigation" id="navigation">
-        <h1><a href="https://github.com/jhrxx/CORS-Chrome-extension" target="_blank"><%=settings%></a></h1>
+        <h1><a href="https://github.com/jhrxx/CORS-dev-tool" target="_blank"><%=settings%></a></h1>
         <ul class="menu">
           <li id="response_headers_item" class="selected">
             <a href="#response_headers"><%=headers%></a>
@@ -127,7 +128,9 @@
             <div id="about-container">
               <div id="product-description">
                 <h2>CORS dev tool</h2>
-                <span id="version-container"></span>
+                <span id="version-container">
+                </span>
+                <%=about_content%>
                 <a href="https://github.com/jhrxx/CORS-dev-tool" target="_blank"><%=github%></a>
               </div>
             </div>

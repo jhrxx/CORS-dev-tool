@@ -26,6 +26,10 @@ Firefox v48+
 `$ npm install`
 打开浏览器开发模式，载入扩展程序目录
 
+`$ gulp`
+打包
+
+
 License
 ---
 [反 996 许可证](LICENSE)

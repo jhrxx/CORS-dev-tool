@@ -55,6 +55,7 @@ const lang = {
     github: browser.i18n.getMessage('project_on_github'),
     list: browser.i18n.getMessage('filter_url_patterns'),
     description: browser.i18n.getMessage('description'),
+    about_content: browser.i18n.getMessage('about_content'),
     more_details_url: `https://developer.mozilla.org/${browser.i18n.getUILanguage()}/docs/Mozilla/Add-ons/WebExtensions/Match_patterns`
 }
 
