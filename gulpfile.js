@@ -1,10 +1,12 @@
-let gulp = require('gulp');
-let del = require('del'),
+const fs = require('fs');
+const gulp = require('gulp');
+const del = require('del'),
 minify = require('gulp-minify'),
     cleanCSS = require('gulp-clean-css'),
     imagemin = require('gulp-imagemin'),
-    jsonminify = require('gulp-jsonminify');
-    htmlmin = require('gulp-htmlmin')
+    jsonminify = require('gulp-jsonminify'),
+    htmlmin = require('gulp-htmlmin'),
+    zip = require('gulp-zip')
 
 const dist = 'cors-dev-tool'
 
@@ -32,8 +34,8 @@ gulp.task('json2',  ()=> {
 });
 
 
-gulp.task('js', function() {
-    gulp.src(['./*.js', '!gulpfile.js'])
+gulp.task('js',  () => {
+    return gulp.src(['./*.js', '!gulpfile.js'])
       .pipe(minify({
         noSource:true,
         ext:{
@@ -41,9 +43,9 @@ gulp.task('js', function() {
         }
       }))
       .pipe(gulp.dest(dist))
-  });
+});
 
-gulp.task('html', function () {
+gulp.task('html',  () => {
     let htmlOptions = {
         removeComments: true,//清除HTML注释
         collapseWhitespace: true,//压缩HTML
@@ -53,7 +55,7 @@ gulp.task('html', function () {
         .pipe(gulp.dest(dist))
 });
 
-gulp.task('img', function () {
+gulp.task('img', () => {
     var imgOption = {
         multipass: true, //类型：Boolean 默认：false 多次优化svg直到完全优化
         svgoPlugins: [{removeViewBox: false}],//不要移除svg的viewbox属性
@@ -62,8 +64,24 @@ gulp.task('img', function () {
         .pipe(imagemin(imgOption))
         .pipe(gulp.dest(dist))
 });
-// gulp.task('default', []);
+
+gulp.task('zip', () => {
+    return  gulp.src(dist+'/*')
+        .pipe(zip(dist+'.zip'))
+        .pipe(gulp.dest(dist))
+});
+
+gulp.task('rename', () => {
+    fs.rename(dist+'/'+dist+'.zip', dist+'/'+dist+'.xpi', function (err) {
+        if (err) throw err;
+        console.log('renamed complete');
+    });
+});
 
 gulp.task('default', ['clean'], function () {
     gulp.start(['img','css','html','json', 'json2','js']);
+});
+
+gulp.task('ff', ['zip'], function () {
+    gulp.start(['rename']);
 });
