@@ -4,7 +4,7 @@ const optionsUrl = browser.runtime.getURL('options.html')
 const lang = {
   title: browser.i18n.getMessage('enable_cross_origin_resource_sharing'),
   cors: browser.i18n.getMessage('CORS'),
-  list: browser.i18n.getMessage('filter_list'),
+  list: browser.i18n.getMessage('white_list'),
   custom: browser.i18n.getMessage('options'),
   more_details: browser.i18n.getMessage('more_details')
 }
@@ -30,7 +30,7 @@ const syncOptions = () => {
 
 const eventHandler = () => {
   const bindEvents = () => {
-    const $inputs = document.querySelectorAll('#filter_list .weui-check')
+    const $inputs = document.querySelectorAll('#white_list .weui-check')
 
     document.getElementById('switch').addEventListener('change', function(event) {
       bgp.setConfig({ active: event.target.checked })

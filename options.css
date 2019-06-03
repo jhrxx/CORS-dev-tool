@@ -69,11 +69,11 @@ body {
 .overlay.transparent {
   z-index: -1;
 }
-#filter_list input + a {
+#white_list input + a {
   margin-left: 10px;
 }
 
-#filter_list .row:hover a {
+#white_list .row:hover a {
   cursor: pointer;
 }
 .navigation {

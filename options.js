@@ -43,7 +43,7 @@ const lang = {
     del: browser.i18n.getMessage('delete'),
     edit: browser.i18n.getMessage('edit'),
     more_details: browser.i18n.getMessage('more_details'),
-    patterns: browser.i18n.getMessage('url_patterns'),
+    patterns: browser.i18n.getMessage('white_list'),
     enable: browser.i18n.getMessage('enable'),
     confirm: browser.i18n.getMessage('confirm'),
     cancel: browser.i18n.getMessage('cancel'),
@@ -56,6 +56,8 @@ const lang = {
     list: browser.i18n.getMessage('filter_url_patterns'),
     description: browser.i18n.getMessage('description'),
     about_content: browser.i18n.getMessage('about_content'),
+    pattern_placeholder: browser.i18n.getMessage('pattern_placeholder'),
+    desc_placeholder: browser.i18n.getMessage('desc_placeholder'),
     more_details_url: `https://developer.mozilla.org/${browser.i18n.getUILanguage()}/docs/Mozilla/Add-ons/WebExtensions/Match_patterns`
 }
 
@@ -315,7 +317,7 @@ const eventHandler = () => {
         const bindEvents = () => {
             // filter list events
             // delete comfire
-            let $del = document.querySelectorAll('#filter_list .del')
+            let $del = document.querySelectorAll('#white_list .del')
             for (const item of $del) {
                 item.addEventListener('click', function(event) {
                     event.preventDefault()
@@ -327,7 +329,7 @@ const eventHandler = () => {
             }
 
             // open edit dialog
-            let $edit = document.querySelectorAll('#filter_list .edit')
+            let $edit = document.querySelectorAll('#white_list .edit')
             for (const item of $edit) {
                 item.addEventListener('click', function(event) {
                     event.preventDefault()
@@ -344,7 +346,7 @@ const eventHandler = () => {
 
             // enable / disable filter
             let $inputs = document.querySelectorAll(
-                '#filter_list input[type=checkbox]'
+                '#white_list input[type=checkbox]'
             )
             for (const input of $inputs) {
                 input.addEventListener('change', function(event) {
@@ -370,7 +372,7 @@ const eventHandler = () => {
             })
             // render filter list
             const html = tmpl('filter_list_template', { data, lang })
-            document.getElementById('filter_list').innerHTML = html
+            document.getElementById('white_list').innerHTML = html
 
             bindEvents()
 

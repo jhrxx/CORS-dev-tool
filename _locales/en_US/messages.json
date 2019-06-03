@@ -5,8 +5,8 @@
   "CORS": {
     "message": "Cross-Origin Resource Sharing"
   },
-  "filter_list": {
-    "message": "Filter list"
+  "white_list": {
+    "message": "White List"
   },
   "options":{
     "message": "Options"
@@ -88,5 +88,11 @@
   },
   "about_content": {
     "message": "CORS dev tool allows you to customize the rules to the HTTP response header. You can add the `Access-Control-Allow-Origin:http://localhost:3000` rule to the response header to allow CORS to be developed locally. Avoid cross-domain request interception by the browser."
+  },
+  "pattern_placeholder": {
+    "message": "Intercepted URLs or URL patterns"
+  },
+  "desc_placeholder": {
+    "message": "Optional"
   }
 }

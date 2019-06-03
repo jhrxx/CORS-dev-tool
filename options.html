@@ -19,14 +19,14 @@
         </div>
         <div class="row">
           <%=lang.patterns%>:
-          <input id="url_pattern" type="text" placeholder="Intercepted URLs or URL patterns" <%if( data.type==='edit') {%> value="<%=data.pattern%>" <%}%>>
+          <input id="url_pattern" type="text" placeholder="<%=lang.pattern_placeholder%>" <%if( data.type==='edit') {%> value="<%=data.pattern%>" <%}%>>
         </div>
         <div class="row">
           <%=lang.description%>:
-          <input type="text" id="url_description" placeholder="option" <%if( data.type==='edit') {%> value="<%=data.description%>" <%}%>>
+          <input type="text" id="url_description" placeholder="<%=lang.desc_placeholder%>" <%if( data.type==='edit') {%> value="<%=data.description%>" <%}%>>
         </div>
         <label for="url_active">
-          <input id="url_active" type="checkbox" <%if( data.type==='edit' && data.active) {%> checked<%}%>> <%=lang.enable%>
+          <input id="url_active" type="checkbox"<%if(( data.type==='edit' && data.active )||data.type==='add') {%> checked<%}%>> <%=lang.enable%>
         </label>
       </section>
       <div class="action-area">
@@ -116,7 +116,7 @@
               <div class="text"></div>
             </div>
             <h3><%=list%></h3>
-            <section id="filter_list">
+            <section id="white_list">
             </section>
           </div>
         </div>
