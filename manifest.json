@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "CORS-dev-tool",
     "description": "This extension allows developer config rules in modifying responses within Ajax request.",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "homepage_url": "https://github.com/jhrxx/CORS-dev-tool",
     "default_locale": "en_US",
     "browser_action": {
@@ -29,7 +29,6 @@
         }
     },
     "permissions": [
-        "tabs",
         "storage",
         "<all_urls>",
         "webRequest",

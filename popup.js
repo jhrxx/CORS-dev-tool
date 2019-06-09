@@ -18,16 +18,6 @@ const convert = str => {
   return str
 }
 
- // sync option page data
-const syncOptions = () => {
-  // TODO: refreash option page
-  browser.tabs.query({ url: optionsUrl }, tabs => {
-    if (tabs.length === 1) {
-      browser.tabs.sendMessage(tabs[0].id, { onchange: 'weui-check' })
-    }
-  })
-}
-
 const eventHandler = () => {
   const bindEvents = () => {
     const $inputs = document.querySelectorAll('#white_list .weui-check')
@@ -47,7 +37,7 @@ const eventHandler = () => {
             return url
           })
 
-          bgp.setConfig({ urls }, syncOptions)
+          bgp.setConfig({ urls })
         })
       })
     }
@@ -55,16 +45,7 @@ const eventHandler = () => {
     document.getElementById('options').addEventListener('click', event => {
       event.preventDefault()
 
-      browser.tabs.query({ url: optionsUrl }, function(tabs) {
-        // if option page is open, actcive option page
-        if (tabs.length === 1) {
-          if (!tabs[0].active) {
-            browser.tabs.update(tabs[0].id, { active: true })
-          }
-        } else {
-          browser.tabs.create({ url: optionsUrl })
-        }
-      })
+      browser.runtime.openOptionsPage()
     })
   }
 
@@ -91,9 +72,6 @@ const eventHandler = () => {
 
     // set active icon
     bgp.setIcon(data.active)
-
-    // set switch status
-    // document.getElementById('switch').setAttribute('checked', data.active)
   })
 }
 
